@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Session 1</string>
+    <string name="btn1_text">button 1</string>
 </resources>
