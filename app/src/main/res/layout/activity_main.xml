@@ -1,59 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_margin="16dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Number 1 : " />
 
         <EditText
-            android:id="@+id/editTxt_number_1"
-            android:layout_width="200dp"
+            android:id="@+id/edittext_username"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Number 1" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Number 2 : " />
+            android:layout_marginBottom="18dp"
+            android:hint="Username"
+            android:textColor="@color/soorati" />
 
         <EditText
-            android:id="@+id/editTxt_number_2"
-            android:layout_width="200dp"
+            android:id="@+id/edittext_password"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Number 2" />
-    </LinearLayout>
+            android:hint="Password"
+            android:textColor="@color/soorati" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <Button
-            android:id="@+id/button_add"
+            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"/>
-        <TextView
-            android:id="@+id/txtview_sum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SUM"/>
-    </LinearLayout>
+            android:text="LOGIN"
+            android:layout_gravity="center"
+            android:textColor="@color/soorati"/>
 
+    </LinearLayout>
 
 </LinearLayout>
 
