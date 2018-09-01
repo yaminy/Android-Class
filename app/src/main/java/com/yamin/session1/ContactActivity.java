@@ -8,6 +8,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -28,24 +30,37 @@ import java.util.Set;
 
 public class ContactActivity extends AppCompatActivity {
     String name;
-    ListView listView;
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
         name = getIntent().getStringExtra("Name");
-        listView = findViewById(R.id.listViewContacts);
-
+        mRecyclerView = findViewById(R.id.recycler);
         if (checkPermission()) {
 
             List<Contact> contacts = Contacts.getQuery().find();
-            List<String> names = new ArrayList<>();
-            for(int i = 0 ; i<contacts.size();i++){
-                names.add(contacts.get(i).getDisplayName());
-            }
-            ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.item_contact,names);
-            listView.setAdapter(adapter);
+//            List<String> names = new ArrayList<>();
+//            for(int i = 0 ; i<contacts.size();i++){
+//                names.add(contacts.get(i).getDisplayName());
+//            }
+
+            mAdapter = new ContactAdapter(contacts,this);
+            mLayoutManager = new LinearLayoutManager(this);
+            mRecyclerView.setLayoutManager(mLayoutManager);
+            mRecyclerView.setAdapter(mAdapter);
+
+            // use a linear layout manager
+//            mLayoutManager = new LinearLayoutManager(this);
+//            mRecyclerView.setLayoutManager(mLayoutManager);
+//
+//            // specify an adapter
+//            mAdapter = new MyAdapter(myDataset);
+//            mRecyclerView.setAdapter(mAdapter);
 
         } else {
             requestPermission();
