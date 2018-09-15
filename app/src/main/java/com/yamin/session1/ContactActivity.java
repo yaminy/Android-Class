@@ -49,10 +49,21 @@ public class ContactActivity extends AppCompatActivity {
 //                names.add(contacts.get(i).getDisplayName());
 //            }
 
-            mAdapter = new ContactAdapter(contacts,this);
+            mAdapter = new ContactAdapter(contacts, this);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(mAdapter);
+
+            Student student = new Student("Arash", "1", "0912");
+            StudentDatabase.getInstance(this)
+                    .getStudentDao()
+                    .insert(student);
+            List<Student> studentList = StudentDatabase
+                    .getInstance(this)
+                    .getStudentDao()
+                    .getAllStudents();
+
+            Toast.makeText(this, studentList.get(0).name + "", Toast.LENGTH_LONG).show();
 
             // use a linear layout manager
 //            mLayoutManager = new LinearLayoutManager(this);

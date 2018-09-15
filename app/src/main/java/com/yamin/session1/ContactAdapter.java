@@ -1,6 +1,7 @@
 package com.yamin.session1;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.github.tamir7.contacts.Contact;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Yamin on 9/1/2018.
@@ -44,6 +47,8 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
         if (contacts.get(position).getPhoneNumbers().size() != 0)
             holder.txtPhone.setText(contacts.get(position).getPhoneNumbers().get(0).getNumber());
 
+        if (contacts.get(position).getPhotoUri() != null)
+            holder.img1.setImageURI(Uri.parse(contacts.get(position).getPhotoUri()));
 //        if (contacts.get(position).getPhotoUri() !=null)
 //        Glide.with(context)
 //                .load(contacts.get(position).getPhotoUri())
@@ -59,7 +64,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView img1;
+        CircleImageView img1;
         TextView txt1;
         TextView txtPhone;
 
