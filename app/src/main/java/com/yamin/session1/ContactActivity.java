@@ -10,7 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -31,6 +34,8 @@ import java.util.Set;
 public class ContactActivity extends AppCompatActivity {
     String name;
 
+    Toolbar toolbar;
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -44,10 +49,6 @@ public class ContactActivity extends AppCompatActivity {
         if (checkPermission()) {
 
             List<Contact> contacts = Contacts.getQuery().find();
-//            List<String> names = new ArrayList<>();
-//            for(int i = 0 ; i<contacts.size();i++){
-//                names.add(contacts.get(i).getDisplayName());
-//            }
 
             mAdapter = new ContactAdapter(contacts, this);
             mLayoutManager = new LinearLayoutManager(this);
@@ -65,19 +66,22 @@ public class ContactActivity extends AppCompatActivity {
 
             Toast.makeText(this, studentList.get(0).name + "", Toast.LENGTH_LONG).show();
 
-            // use a linear layout manager
-//            mLayoutManager = new LinearLayoutManager(this);
-//            mRecyclerView.setLayoutManager(mLayoutManager);
-//
-//            // specify an adapter
-//            mAdapter = new MyAdapter(myDataset);
-//            mRecyclerView.setAdapter(mAdapter);
 
         } else {
             requestPermission();
         }
 
+        toolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        return true;
     }
 
     private boolean checkPermission() {
