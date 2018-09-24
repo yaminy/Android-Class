@@ -31,6 +31,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ContactActivity extends AppCompatActivity {
     String name;
 
@@ -55,10 +59,13 @@ public class ContactActivity extends AppCompatActivity {
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(mAdapter);
 
+            //Insert Data Student to Table
             Student student = new Student("Arash", "1", "0912");
             StudentDatabase.getInstance(this)
                     .getStudentDao()
                     .insert(student);
+
+            //Retrieve Data from Room
             List<Student> studentList = StudentDatabase
                     .getInstance(this)
                     .getStudentDao()
@@ -74,7 +81,24 @@ public class ContactActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
+        getGithubResponse();
+    }
 
+    private void getGithubResponse() {
+
+     Call<GithubResponse> call = APIBaseCreator.getApiHeader().getResponse();
+     call.enqueue(new Callback<GithubResponse>() {
+         @Override
+         public void onResponse(Call<GithubResponse> call, Response<GithubResponse> response) {
+             GithubResponse githubResponse = response.body();
+             Toast.makeText(ContactActivity.this,githubResponse.getUserUrl() + "",Toast.LENGTH_LONG).show();
+         }
+
+         @Override
+         public void onFailure(Call<GithubResponse> call, Throwable t) {
+
+         }
+     });
     }
 
     @Override

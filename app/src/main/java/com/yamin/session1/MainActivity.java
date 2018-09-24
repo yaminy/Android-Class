@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         editTextUsername = findViewById(R.id.edittext_username);
         editTextPassword = findViewById(R.id.edittext_password);
-//        myToolbar = findViewById(R.id.my_toolbar);
-//        setSupportActionBar(myToolbar);
         btnLogin = findViewById(R.id.btnLogin);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -63,9 +61,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
-//        return true;
-//    }
 }
