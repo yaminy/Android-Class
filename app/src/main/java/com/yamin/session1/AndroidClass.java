@@ -2,17 +2,21 @@ package com.yamin.session1;
 
 import android.app.Application;
 
-import com.github.tamir7.contacts.Contacts;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
- * Created by Yamin on 8/26/2018.
+ * Created by Yamin on 10/1/2018.
  */
 
 public class AndroidClass extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();
-        Contacts.initialize(this);
-
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Vazir-FD.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
     }
 }

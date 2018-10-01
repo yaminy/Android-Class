@@ -10,10 +10,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by Yamin on 9/24/2018.
+ * Created by Yamin on 10/1/2018.
  */
 
 public class APIBaseCreator {
+
     public static ApiHeader getApiHeader() {
 
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -31,7 +32,7 @@ public class APIBaseCreator {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("https://api.github.com/")
+                .baseUrl("http://www.mocky.io/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
@@ -40,4 +41,3 @@ public class APIBaseCreator {
 
     }
 }
-
