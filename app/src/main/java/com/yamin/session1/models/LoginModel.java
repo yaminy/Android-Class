@@ -1,4 +1,4 @@
-package com.yamin.session1;
+package com.yamin.session1.models;
 
 /**
  * Created by Yamin on 10/1/2018.

@@ -1,4 +1,4 @@
-package com.yamin.session1;
+package com.yamin.session1.network;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,7 +32,7 @@ public class APIBaseCreator {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("http://www.mocky.io/")
+                .baseUrl("https://karan-app.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
