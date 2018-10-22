@@ -2,6 +2,8 @@ package com.yamin.session1;
 
 import android.app.Application;
 
+import com.yamin.session1.R;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**

@@ -1,11 +1,13 @@
 package com.yamin.session1.activities;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -28,6 +30,9 @@ public class CreditCardsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_credit_cards);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[] {Manifest.permission.ACCESS_FINE_LOCATION},123);
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -39,7 +44,8 @@ public class CreditCardsActivity extends AppCompatActivity {
 //                Intent intent = new Intent(CreditCardsActivity.this,AddCreditActivity.class);
 //                startActivity(intent);
 
-                openInsertDialog();
+//                openInsertDialog();
+                startActivity(new Intent(CreditCardsActivity.this,MapsActivity.class));
             }
         });
     }
