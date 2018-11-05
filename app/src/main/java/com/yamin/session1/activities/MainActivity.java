@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
@@ -44,6 +46,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d("TOOOKEN", " : " + token);
         layoutLogin = findViewById(R.id.layout_login);
 
         layoutLogin.setOnClickListener(new View.OnClickListener() {

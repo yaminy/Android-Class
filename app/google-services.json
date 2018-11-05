@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "78440023568",
+    "firebase_url": "https://android-class-220214.firebaseio.com",
+    "project_id": "android-class-220214",
+    "storage_bucket": "android-class-220214.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78440023568:android:39ee55511335c89c",
+        "android_client_info": {
+          "package_name": "com.yamin.session1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78440023568-um1iqgacnj50mt6mp9oi3i9apbpmt5o6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC_V3Zqw5_8bhOIysPpep54RyGCyG3zBs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

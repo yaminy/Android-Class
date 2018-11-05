@@ -9,18 +9,26 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.yamin.session1.R;
 import com.yamin.session1.models.CreditCard;
+import com.yamin.session1.utils.MyNotificationManagers;
 
 public class CreditCardsActivity extends AppCompatActivity {
 
@@ -34,6 +42,20 @@ public class CreditCardsActivity extends AppCompatActivity {
             requestPermissions(new String[] {Manifest.permission.ACCESS_FINE_LOCATION},123);
         }
 
+        //Sending Message
+//        try{
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                requestPermissions(new String[] {Manifest.permission.SEND_SMS},1);
+//            }
+//            SmsManager smsManager = SmsManager.getDefault();
+//            smsManager.sendTextMessage("09137900801", null, "sms message", null, null);
+//
+//        }catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+
+        MyNotificationManagers.showNotification("Test","This is for test" , CreditCardsActivity.class,this);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +67,9 @@ public class CreditCardsActivity extends AppCompatActivity {
 //                startActivity(intent);
 
 //                openInsertDialog();
-                startActivity(new Intent(CreditCardsActivity.this,MapsActivity.class));
+//                startActivity(new Intent(CreditCardsActivity.this,MapsActivity.class));
+
+
             }
         });
     }
